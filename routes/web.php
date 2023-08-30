@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Pages\AdminController;
+use App\Http\Controllers\Pages\HomeController;
 use App\Http\Controllers\Pages\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class, 'index']);
 
 Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])
     ->group(function () {
