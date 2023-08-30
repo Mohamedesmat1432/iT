@@ -1,6 +1,6 @@
 @props(['start', 'end'])
 
-@if (Helper::countMonth($end, $start) > 0 && Helper::countMonth($end, $start) < 8)
+@if (Helper::countDays($end, $start) > 1 && Helper::countDays($end, $start) < 240)
     <div class="bg-red-600 rounded-lg p-1 flex justify-center text-white">
         <span class="mr-2">{{ __('Danger') }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
@@ -9,7 +9,7 @@
                 d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126zM12 15.75h.007v.008H12v-.008z" />
         </svg>
     </div>
-@elseif(Helper::countMonth($end, $start) >= 8 && Helper::countMonth($end, $start) <= 10)
+@elseif(Helper::countDays($end, $start) >= 240 && Helper::countDays($end, $start) <= 300)
     <div class="bg-yellow-600 rounded-lg p-1 flex justify-center text-white">
         <span class="mr-2">{{ __('Warning') }}</span>
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"

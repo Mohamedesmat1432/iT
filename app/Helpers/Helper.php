@@ -7,8 +7,8 @@ use Carbon\Carbon;
 class Helper
 {
 
-    public static function countMonth($end, $start)
+    public static function countDays($end, $start)
     {
-        return Carbon::parse($end)->diffInMonths(Carbon::parse($start));
+        return Carbon::parse($end)->diffInDays(Carbon::parse($start));
     }
 }
