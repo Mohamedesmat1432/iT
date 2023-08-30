@@ -22,9 +22,6 @@
 
         <div class="mt-6 text-gray-500 leading-relaxed">
             <div class="mt-3">
-                <x-alert message="message" />
-            </div>
-            <div class="mt-3">
                 <div class="flex justify-between">
                     <div>
                         <x-input type="search" wire:model.debounce.500ms="search"
@@ -72,10 +69,10 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
-                                <button wire:click="sortBy('phone')">
-                                    {{ __('Phone') }}
+                                <button wire:click="sortBy('company_id')">
+                                    {{ __('Company Id') }}
                                 </button>
-                                <x-sort-icon sortField="phone" :sortBy="$sortBy" :sortAsc="$sortAsc" />
+                                <x-sort-icon sortField="company_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
                             </div>
                         </td>
                         <td class="px-4 py-2 border">
@@ -135,7 +132,7 @@
                                 {{ $license->name }}
                             </td>
                             <td class="p-2 border">
-                                {{ $license->phoneNumber }}
+                                {{ $license->company_id }}
                             </td>
                             <td class="p-2 border">
                                 <a href="{{ asset('files/licenses/' . $license->file) }}" target="_blank">

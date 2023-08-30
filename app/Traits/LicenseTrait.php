@@ -8,13 +8,13 @@ trait LicenseTrait
 {
     use WithPagination, FileTrait, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $license, $licenseId, $name, $phone, $start_date, $end_date;
+    public $license, $licenseId, $company_id, $name, $start_date, $end_date;
 
     protected function rules()
     {
         $rules =  [
             'name' => 'required|string|min:4',
-            'phone' => 'required|string|min:10',
+            'company_id' => 'nullable|numeric|exists:companies,id',
             'start_date' => 'required|date',
             'end_date' => 'required|date'
         ];
@@ -38,7 +38,7 @@ trait LicenseTrait
     {
         $this->resetValidation();
         $this->reset([
-            'licenseId', 'name', 'phone', 'start_date', 'end_date',
+            'licenseId', 'name', 'company_id', 'start_date', 'end_date',
             'file', 'newFile', 'files', 'newFiles'
         ]);
     }

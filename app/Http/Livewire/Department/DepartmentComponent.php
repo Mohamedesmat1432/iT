@@ -75,6 +75,7 @@ class DepartmentComponent extends Component
     public function deleteDepartment()
     {
         $department = $this->department->findOrFail($this->departmentId);
+        $department->users()->update(['department_id' => null]);
         $department->delete();
         $this->deleteMessage('Department');
         $this->confirmDeletion = false;

@@ -6,16 +6,17 @@ use Livewire\WithPagination;
 
 trait CompanyTrait
 {
-    use WithPagination, ConfirmTrait, SortSearchTrait, MessageTrait;
+    use WithPagination, FileTrait, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $company, $companyId, $name, $address, $phone;
+    public $company, $companyId, $name, $email, $address, $phone;
 
     protected function rules()
     {
         return [
             'name' => 'required|string|min:4',
-            'address' => 'required|string',
-            'phone' => 'required|string|min:10'
+            'email' => 'nullable|string|email',
+            'address' => 'nullable|string',
+            'phone' => 'nullable|string|min:10'
         ];
     }
 
@@ -27,6 +28,6 @@ trait CompanyTrait
     public function resetItems()
     {
         $this->resetValidation();
-        $this->reset(['companyId', 'name', 'phone', 'address']);
+        $this->reset(['companyId', 'name', 'email', 'phone', 'address']);
     }
 }

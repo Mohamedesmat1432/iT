@@ -27,4 +27,28 @@ trait MessageTrait
             'message' =>  __($message . ' has been deleted successfully')
         ]);
     }
+
+    public function importMessage($message)
+    {
+        $this->dispatchBrowserEvent('banner-message', [
+            'style' => 'success',
+            'message' =>  __($message . ' has been imported successfully')
+        ]);
+    }
+
+    public function exportMessage($message)
+    {
+        $this->dispatchBrowserEvent('banner-message', [
+            'style' => 'success',
+            'message' =>  __($message . ' has been exported successfully')
+        ]);
+    }
+
+    public function errorMessage($message)
+    {
+        $this->dispatchBrowserEvent('banner-message', [
+            'style' => 'danger',
+            'message' =>  __($message)
+        ]);
+    }
 }

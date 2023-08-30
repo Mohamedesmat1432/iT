@@ -28,6 +28,7 @@ class CompanyComponent extends Component
         $companies = $this->company->when($this->search, function ($query) {
             return $query->where(function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')
+                    ->orWhere('email', 'like', '%' . $this->search . '%')
                     ->orWhere('address', 'like', '%' . $this->search . '%')
                     ->orWhere('phone', 'like', '%' . $this->search . '%');
             });
@@ -51,6 +52,7 @@ class CompanyComponent extends Component
         $company = $this->company->findOrFail($id);
         $this->companyId = $company->id;
         $this->name = $company->name;
+        $this->email = $company->email;
         $this->address = $company->address;
         $this->phone = $company->phone;
     }
@@ -81,6 +83,7 @@ class CompanyComponent extends Component
     public function deleteCompany()
     {
         $company = $this->company->findOrFail($this->companyId);
+        $company->licenses()->update(['company_id' => null]);
         $company->delete();
         $this->deleteMessage('Company');
         $this->confirmDeletion = false;
@@ -92,17 +95,25 @@ class CompanyComponent extends Component
         $this->resetItems();
     }
 
-    public function importCompany()
+    public function importCompany(CompaniesImport $importCompany)
     {
         $this->validate(['file' => 'required|mimes:xlsx,xls']);
-        session()->flash('message', __('Companies has been improted successfully'));
-        $this->confirmImport = false;
-        return (new CompaniesImport)->import($this->file);
+        try {
+            $this->importMessage(__('Companies'));
+            $this->confirmImport = false;
+            return $importCompany->import($this->file);
+        } catch (\Throwable $e) {
+            $this->errorMessage($e->getMessage());
+        }
     }
 
-    public function exportCompany()
+    public function exportCompany(CompaniesExport $exportCompany)
     {
-        session()->flash('message', __('Companies has been exported successfully'));
-        return (new CompaniesExport)->download('companies.xlsx');
+        try {
+            $this->exportMessage(__('Companies'));
+            return $exportCompany->download('companies.xlsx');
+        } catch (\Throwable $e) {
+            $this->errorMessage($e->getMessage());
+        }
     }
 }

@@ -14,10 +14,14 @@
                 <x-input-error for="name" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
-                <x-label for="phone" value="{{ __('Phone') }}" />
-                <x-input id="phone" type="text" class="mt-1 block w-full" wire:model.debounce.500ms="phone"
-                    placeholder="{{ __('Enter license phone') }}" />
-                <x-input-error for="phone" class="mt-2" />
+                <x-label for="company_id" value="{{ __('Company') }}" />
+                <x-select id="company_id" class="mt-1 block w-full" wire:model="company_id">
+                    <option value="#">{{ __('Select company') }}</option>
+                    @foreach ($companies as $company)
+                        <option value="{{ $company->id }}">{{ $company->name }}</option>
+                    @endforeach
+                </x-select>
+                <x-input-error for="company_id" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="file" value="{{ __('File') }}" />
@@ -32,10 +36,10 @@
             <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="file" value="{{ __('Files') }}" />
                 @if (isset($this->licenseId))
-                    <x-input id="newFiles" type="file" class="mt-1 block w-full" wire:model="newFiles" multiple/>
+                    <x-input id="newFiles" type="file" class="mt-1 block w-full" wire:model="newFiles" multiple />
                     <x-input-error for="newFiles.*" class="mt-2" />
                 @else
-                    <x-input id="files" type="file" class="mt-1 block w-full" wire:model="files" multiple/>
+                    <x-input id="files" type="file" class="mt-1 block w-full" wire:model="files" multiple />
                     <x-input-error for="files.*" class="mt-2" />
                 @endif
             </div>

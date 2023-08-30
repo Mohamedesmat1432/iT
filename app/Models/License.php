@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class License extends Model
 {
@@ -17,11 +18,11 @@ class License extends Model
         'files',
         'start_date',
         'end_date',
-        'phone'
+        'company_id'
     ];
 
-    public function getPhoneNumberAttribute()
+    public function Company(): BelongsTo
     {
-        return rtrim(chunk_split($this->phone, 3, '-'), '-');
+        return $this->belongsTo(Company::class);
     }
 }

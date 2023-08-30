@@ -14,15 +14,21 @@
                 <x-input-error for="name" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
+                <x-label for="name" value="{{ __('Email') }}" />
+                <x-input id="email" type="email" class="mt-1 block w-full" wire:model.debounce.500ms="email"
+                    placeholder="{{ __('Enter company email') }}" />
+                <x-input-error for="email" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="address" value="{{ __('Address') }}" />
-                <x-input id="address" type="text" class="mt-1 block w-full"
-                    wire:model.debounce.500ms="address" placeholder="{{ __('Enter company address') }}" />
+                <x-input id="address" type="text" class="mt-1 block w-full" wire:model.debounce.500ms="address"
+                    placeholder="{{ __('Enter company address') }}" />
                 <x-input-error for="address" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="phone" value="{{ __('Phone') }}" />
-                <x-input id="phone" type="text" class="mt-1 block w-full"
-                    wire:model.debounce.500ms="phone" placeholder="{{ __('Enter company phone') }}" />
+                <x-input id="phone" type="text" class="mt-1 block w-full" wire:model.debounce.500ms="phone"
+                    placeholder="{{ __('Enter company phone') }}" />
                 <x-input-error for="phone" class="mt-2" />
             </div>
         </form>

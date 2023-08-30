@@ -21,7 +21,7 @@
             {{ __('Cancel') }}
         </x-secondary-button>
 
-        <x-indigo-button class="ml-3" wire:click="importComapny()" wire:loading.attr="disabled">
+        <x-indigo-button class="ml-3" wire:click="importCompany()" wire:loading.attr="disabled">
             {{ __('Import Comapny') }}
         </x-indigo-button>
     </x-slot>

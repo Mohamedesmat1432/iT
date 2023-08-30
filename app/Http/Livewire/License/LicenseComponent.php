@@ -6,6 +6,7 @@ use App\Models\License;
 use Livewire\Component;
 use App\Exports\LicensesExport;
 use App\Imports\LicensesImport;
+use App\Models\Company;
 use App\Traits\LicenseTrait;
 
 class LicenseComponent extends Component
@@ -25,6 +26,8 @@ class LicenseComponent extends Component
 
     public function render()
     {
+        $companies = Company::select('id','name','email','phone')->get();
+
         $licenses = $this->license->when($this->search, function ($query) {
             return $query->where(function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')
@@ -35,7 +38,8 @@ class LicenseComponent extends Component
         })->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')->paginate(10);
 
         return view('livewire.license.license-component', [
-            'licenses' => $licenses
+            'licenses' => $licenses,
+            'companies' => $companies
         ]);
     }
 
@@ -62,7 +66,7 @@ class LicenseComponent extends Component
         $license = $this->license->findOrFail($id);
         $this->licenseId = $license->id;
         $this->name = $license->name;
-        $this->phone = $license->phone;
+        $this->company_id = $license->company_id;
         $this->file = $license->file;
         $this->files = $license->files;
         $this->start_date = $license->start_date;
@@ -107,17 +111,25 @@ class LicenseComponent extends Component
         $this->confirmImport = true;
     }
 
-    public function importLicense()
+    public function importLicense(LicensesImport $importLicenses)
     {
         $this->validate(['file' => 'required|mimes:xlsx,xls']);
-        session()->flash('message', __('Licenses has been improted successfully'));
-        $this->confirmImport = false;
-        return (new LicensesImport)->import($this->file);
+        try {
+            $this->importMessage(__('Licenses'));
+            $this->confirmImport = false;
+            return $importLicenses->import($this->file);
+        } catch (\Throwable $e) {
+            $this->errorMessage($e->getMessage());
+        }
     }
 
-    public function exportLicense()
+    public function exportLicense(LicensesExport $exportLicenses)
     {
-        session()->flash('message', __('Licenses has been exported successfully'));
-        return (new LicensesExport)->download('licenses.xlsx');
+        try {
+            $this->exportMessage(__('Licenses'));
+            return $exportLicenses->download('licenses.xlsx');
+        } catch (\Throwable $e) {
+            $this->errorMessage($e->getMessage());
+        }
     }
 }

@@ -16,7 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('file')->nullable();
             $table->text('files')->nullable();
-            $table->string('phone');
+            $table->foreignId('company_id')->nullable();
             $table->date('start_date');
             $table->date('end_date');
             $table->timestamps();

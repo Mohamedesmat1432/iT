@@ -32,6 +32,7 @@ class CompaniesImport implements ToModel, WithHeadingRow, WithValidation, SkipsE
             'name' => ['required', 'string'],
             'address' => ['required', 'string'],
             'phone' => ['required', 'string'],
+            'email' => ['nullable', 'string'],
         ];
     }
 }
