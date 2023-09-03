@@ -61,17 +61,15 @@ class CompanyComponent extends Component
     public function saveCompany()
     {
         $validated = $this->validate();
-        $this->company->create($validated);
-        $this->createMessage('Company');
-        $this->confirmForm = false;
-    }
+        if (isset($this->companyId)) {
+            $company = $this->company->findOrFail($this->companyId);
+            $company->update($validated);
+            $this->updateMessage('Company');
+        } else {
+            $this->company->create($validated);
+            $this->createMessage('Company');
+        }
 
-    public function updateCompany()
-    {
-        $validated = $this->validate();
-        $company = $this->company->findOrFail($this->companyId);
-        $company->update($validated);
-        $this->updateMessage('Company');
         $this->confirmForm = false;
     }
 

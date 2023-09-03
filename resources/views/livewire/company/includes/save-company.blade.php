@@ -45,16 +45,9 @@
         <x-secondary-button wire:click="$set('confirmForm',false)" wire:loading.attr="disabled">
             {{ __('Cancel') }}
         </x-secondary-button>
-        @if ($this->companyId)
-            <x-indigo-button class="ml-3" wire:click.prevent="updateCompany()" wire:loading.attr="disabled">
-                {{ __('Update Company') }}
-            </x-indigo-button>
-        @else
-            <x-indigo-button class="ml-3" wire:click.prevent="saveCompany()" wire:loading.attr="disabled">
-                {{ __('Save Company') }}
-            </x-indigo-button>
-        @endif
-
+        <x-indigo-button class="ml-3" wire:click.prevent="saveCompany()" wire:loading.attr="disabled">
+            {{ __('Save Company') }}
+        </x-indigo-button>
     </x-slot>
 </x-dialog-modal>
 {{-- end confirm add && edit comapny --}}

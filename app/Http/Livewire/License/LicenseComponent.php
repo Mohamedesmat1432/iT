@@ -26,7 +26,7 @@ class LicenseComponent extends Component
 
     public function render()
     {
-        $companies = Company::all();
+        $companies = Company::get();
 
         $licenses = $this->license->when($this->search, function ($query) {
             return $query->where(function ($query) {
@@ -49,16 +49,6 @@ class LicenseComponent extends Component
         $this->confirmForm = true;
     }
 
-    public function saveLicense()
-    {
-        $validated = $this->validate();
-        $validated['file'] = $this->uploadFile($this->file, 'licenses');
-        $validated['files'] = $this->uploadFiles($this->files, 'licenses');
-        $this->license->create($validated);
-        $this->createMessage('License');
-        $this->confirmForm = false;
-    }
-
     public function confirmLicenseEdit($id)
     {
         $this->resetItems();
@@ -73,20 +63,27 @@ class LicenseComponent extends Component
         $this->end_date = $license->end_date;
     }
 
-    public function updateLicense()
+    public function saveLicense()
     {
         $validated = $this->validate();
-        $license = $this->license->findOrFail($this->licenseId);
-        if ($this->newFile && $this->newFile !== '') {
-            $this->deleteFile($license->file, 'licenses');
-            $validated['file'] = $this->uploadFile($this->newFile, 'licenses');
+        if (isset($this->licenseId)) {
+            $license = $this->license->findOrFail($this->licenseId);
+            if ($this->newFile && $this->newFile !== '') {
+                $this->deleteFile($license->file, 'licenses');
+                $validated['file'] = $this->uploadFile($this->newFile, 'licenses');
+            }
+            if ($this->newFiles && $this->newFiles !== '') {
+                $this->deleteFiles($license->files, 'licenses');
+                $validated['files'] = $this->uploadFiles($this->newFiles, 'licenses');
+            }
+            $license->update($validated);
+            $this->updateMessage('License');
+        } else {
+            $validated['file'] = $this->uploadFile($this->file, 'licenses');
+            $validated['files'] = $this->uploadFiles($this->files, 'licenses');
+            $this->license->create($validated);
+            $this->createMessage('License');
         }
-        if ($this->newFiles && $this->newFiles !== '') {
-            $this->deleteFiles($license->files, 'licenses');
-            $validated['files'] = $this->uploadFiles($this->newFiles, 'licenses');
-        }
-        $license->update($validated);
-        $this->updateMessage('License');
         $this->confirmForm = false;
     }
 

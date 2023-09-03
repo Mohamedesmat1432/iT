@@ -21,16 +21,9 @@
         <x-secondary-button wire:click="$set('confirmForm',false)" wire:loading.attr="disabled">
             {{ __('Cancel') }}
         </x-secondary-button>
-        @if ($this->departmentId)
-            <x-indigo-button class="ml-3" wire:click.prevent="updateDepartment()" wire:loading.attr="disabled">
-                {{ __('Update Department') }}
-            </x-indigo-button>
-        @else
-            <x-indigo-button class="ml-3" wire:click.prevent="saveDepartment()" wire:loading.attr="disabled">
-                {{ __('Save Department') }}
-            </x-indigo-button>
-        @endif
-
+        <x-indigo-button class="ml-3" wire:click.prevent="saveDepartment()" wire:loading.attr="disabled">
+            {{ __('Save Department') }}
+        </x-indigo-button>
     </x-slot>
 </x-dialog-modal>
 {{-- end confirm add && edit department --}}

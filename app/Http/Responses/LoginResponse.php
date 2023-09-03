@@ -1,9 +1,9 @@
 <?php
- 
+
 namespace App\Http\Responses;
- 
+
 use Laravel\Fortify\Contracts\LoginResponse as LoginResponseContract;
- 
+
 class LoginResponse implements LoginResponseContract
 {
     /**
@@ -12,8 +12,15 @@ class LoginResponse implements LoginResponseContract
      */
     public function toResponse($request)
     {
-        $home = auth()->user()->role === 'admin' ? '/admin-dashboard' : '/dashboard';
- 
+        $home = '';
+        if (auth()->user()->role === 'admin') {
+            $home = '/admin/dashboard';
+        } elseif (auth()->user()->role === 'support') {
+            $home = '/support/dashboard';
+        } else {
+            $home = '/user/dashboard';
+        }
+
         return redirect()->intended($home);
     }
 }

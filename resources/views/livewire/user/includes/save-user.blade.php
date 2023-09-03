@@ -42,6 +42,7 @@
                 <x-select id="role" class="mt-1 block w-full" wire:model="role">
                     <option value="#">{{ __('Select Role') }}</option>
                     <option value="admin">{{ __('Admin') }}</option>
+                    <option value="support">{{ __('Support') }}</option>
                     <option value="user">{{ __('User') }}</option>
                 </x-select>
                 <x-input-error for="role" class="mt-2" />
@@ -53,15 +54,9 @@
         <x-secondary-button wire:click="$set('confirmForm',false)" wire:loading.attr="disabled">
             {{ __('Cancel') }}
         </x-secondary-button>
-        @if ($this->userId)
-            <x-indigo-button class="ml-3" wire:click.prevent="updateUser()" wire:loading.attr="disabled">
-                {{ __('Update User') }}
-            </x-indigo-button>
-        @else
-            <x-indigo-button class="ml-3" wire:click.prevent="saveUser()" wire:loading.attr="disabled">
-                {{ __('Save User') }}
-            </x-indigo-button>
-        @endif
+        <x-indigo-button class="ml-3" wire:click.prevent="saveUser()" wire:loading.attr="disabled">
+            {{ __('Save User') }}
+        </x-indigo-button>
     </x-slot>
 </x-dialog-modal>
 {{-- end confirm add && edit User --}}

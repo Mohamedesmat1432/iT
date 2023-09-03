@@ -15,23 +15,36 @@
                     @if (Route::has('login'))
                         @auth
                             @if (auth()->user()->role === 'admin')
-                                <x-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin-dashboard')">
+                                <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                                     {{ __('Dashboard') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('companies') }}" :active="request()->routeIs('companies')">
+                                <x-nav-link href="{{ route('admin.companies') }}" :active="request()->routeIs('admin.companies')">
                                     {{ __('Comapnies') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('licenses') }}" :active="request()->routeIs('licenses')">
+                                <x-nav-link href="{{ route('admin.licenses') }}" :active="request()->routeIs('admin.licenses')">
                                     {{ __('Licenses') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('departments') }}" :active="request()->routeIs('departments')">
+                                <x-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
                                     {{ __('Departments') }}
                                 </x-nav-link>
-                                <x-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                                <x-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
                                     {{ __('Users') }}
                                 </x-nav-link>
+                                <x-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
+                                    {{ __('Switchs') }}
+                                </x-nav-link>
+                                <x-nav-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
+                                    {{ __('Patchs') }}
+                                </x-nav-link>
+                            @elseif (auth()->user()->role === 'support')
+                                <x-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">
+                                    {{ __('Dashboard') }}
+                                </x-nav-link>
+                                <x-nav-link href="{{ route('support.companies') }}" :active="request()->routeIs('support.companies')">
+                                    {{ __('Comapnies') }}
+                                </x-nav-link>
                             @else
-                                <x-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                                <x-nav-link href="{{ route('user.dashboard') }}" :active="request()->routeIs('user.dashboard')">
                                     {{ __('Dashboard') }}
                                 </x-nav-link>
                             @endif
@@ -187,23 +200,36 @@
             @if (Route::has('login'))
                 @auth
                     @if (auth()->user()->role === 'admin')
-                        <x-responsive-nav-link href="{{ route('admin-dashboard') }}" :active="request()->routeIs('admin-dashboard')">
+                        <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('companies') }}" :active="request()->routeIs('companies')">
+                        <x-responsive-nav-link href="{{ route('admin.companies') }}" :active="request()->routeIs('admin.companies')">
                             {{ __('Comapnies') }}
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('licenses') }}" :active="request()->routeIs('licenses')">
+                        <x-responsive-nav-link href="{{ route('admin.licenses') }}" :active="request()->routeIs('admin.licenses')">
                             {{ __('Licenses') }}
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('departments') }}" :active="request()->routeIs('departments')">
+                        <x-responsive-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
                             {{ __('Departments') }}
                         </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('users') }}" :active="request()->routeIs('users')">
+                        <x-responsive-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
                             {{ __('Users') }}
                         </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
+                            {{ __('Switchs') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
+                            {{ __('Patchs') }}
+                        </x-responsive-nav-link>
+                    @elseif (auth()->user()->role === 'support')
+                        <x-responsive-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">
+                            {{ __('Dashboard') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('support.companies') }}" :active="request()->routeIs('support.companies')">
+                            {{ __('Comapnies') }}
+                        </x-responsive-nav-link>
                     @else
-                        <x-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
+                        <x-responsive-nav-link href="{{ route('user.dashboard') }}" :active="request()->routeIs('user.dashboard')">
                             {{ __('Dashboard') }}
                         </x-responsive-nav-link>
                     @endif

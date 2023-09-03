@@ -2,12 +2,17 @@
 
 namespace App\Http\Livewire\Dashboard;
 
+use App\Models\User;
 use Livewire\Component;
 
 class AdminDashboardComponent extends Component
 {
     public function render()
     {
-        return view('livewire.dashboard.admin-dashboard-component');
+        $users = User::count();
+
+        return view('livewire.dashboard.admin-dashboard-component', [
+            'users' => $users
+        ]);
     }
 }

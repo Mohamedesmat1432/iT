@@ -1,15 +1,15 @@
 <div>
-    @include('livewire.department.includes.save-department')
+    @include('livewire.branchs.includes.save-patch')
 
-    @include('livewire.department.includes.delete-department')
+    @include('livewire.branchs.includes.delete-patch')
 
     <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
 
         <div class="flex justify-between">
             <h1 class=" text-2xl font-medium text-gray-900">
-                {{ __('Departments') }}
+                {{ __('patchs') }}
             </h1>
-            <x-indigo-button wire:click="confirmDepartmentAdd()" wire:loading.attr="disabled">
+            <x-indigo-button wire:click="confirmPatchAdd()" wire:loading.attr="disabled">
                 <x-icon class="w-4 h-4" name="plus" />
                 {{ __('Create') }}
             </x-indigo-button>
@@ -37,10 +37,10 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
-                                <button wire:click="sortBy('name')">
-                                    {{ __('Name') }}
+                                <button wire:click="sortBy('port')">
+                                    {{ __('Port') }}
                                 </button>
-                                <x-sort-icon sortField="name" :sortBy="$sortBy" :sortAsc="$sortAsc" />
+                                <x-sort-icon sortField="port" :sortBy="$sortBy" :sortAsc="$sortAsc" />
                             </div>
                         </td>
                         <td class="px-4 py-2 border">
@@ -51,21 +51,21 @@
                     </tr>
                 </x-slot>
                 <x-slot name="tbody">
-                    @foreach ($departments as $department)
+                    @foreach ($patchs as $patch)
                         <tr>
                             <td class="p-2 border">
-                                {{ $department->id }}
+                                {{ $patch->id }}
                             </td>
                             <td class="p-2 border">
-                                {{ $department->name }}
+                                {{ $patch->port }}
                             </td>
                             <td class="p-2 border">
-                                <x-indigo-button wire:click="confirmDepartmentEdit({{ $department->id }})"
+                                <x-indigo-button wire:click="confirmPatchEdit({{ $patch->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="pencil-square" />
                                     {{ __('Edit') }}
                                 </x-indigo-button>
-                                <x-danger-button wire:click="confirmDepartmentDeletion({{ $department->id }})"
+                                <x-danger-button wire:click="confirmPatchDeletion({{ $patch->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="trash" />
                                     {{ __('Delete') }}
@@ -77,7 +77,7 @@
             </x-table>
 
             <div class="mt-4">
-                {{ $departments->links() }}
+                {{ $patchs->links() }}
             </div>
         </div>
     </div>

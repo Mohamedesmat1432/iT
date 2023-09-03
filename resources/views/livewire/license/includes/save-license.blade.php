@@ -62,15 +62,9 @@
         <x-secondary-button wire:click="$set('confirmForm',false)" wire:loading.attr="disabled">
             {{ __('Cancel') }}
         </x-secondary-button>
-        @if (isset($this->licenseId))
-            <x-indigo-button class="ml-3" wire:click.prevent="updateLicense()" wire:loading.attr="disabled">
-                {{ __('Update License') }}
-            </x-indigo-button>
-        @else
-            <x-indigo-button class="ml-3" wire:click.prevent="saveLicense()" wire:loading.attr="disabled">
-                {{ __('Save License') }}
-            </x-indigo-button>
-        @endif
+        <x-indigo-button class="ml-3" wire:click.prevent="saveLicense()" wire:loading.attr="disabled">
+            {{ __('Save License') }}
+        </x-indigo-button>
 
     </x-slot>
 </x-dialog-modal>

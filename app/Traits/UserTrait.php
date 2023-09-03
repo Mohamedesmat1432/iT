@@ -16,7 +16,7 @@ trait UserTrait
             'name' => 'required|string|min:4',
             'email' => 'required|string|email|max:255|unique:users,email,' . $this->userId,
             'department_id' => 'nullable|numeric|exists:departments,id',
-            'role' => 'required|in:admin,user',
+            'role' => 'required|in:admin,support,user',
         ];
 
         if (!$this->userId) {

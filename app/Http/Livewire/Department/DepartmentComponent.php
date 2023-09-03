@@ -40,14 +40,6 @@ class DepartmentComponent extends Component
         $this->confirmForm = true;
     }
 
-    public function saveDepartment()
-    {
-        $validated = $this->validate();
-        $this->department->create($validated);
-        $this->createMessage('Department');
-        $this->confirmForm = false;
-    }
-
     public function confirmDepartmentEdit($id)
     {
         $this->resetItems();
@@ -57,12 +49,17 @@ class DepartmentComponent extends Component
         $this->name = $department->name;
     }
 
-    public function updateDepartment()
+    public function saveDepartment()
     {
         $validated = $this->validate();
-        $department = $this->department->findOrFail($this->departmentId);
-        $department->update($validated);
-        $this->updateMessage('Department');
+        if (isset($this->departmentId)) {
+            $department = $this->department->findOrFail($this->departmentId);
+            $department->update($validated);
+            $this->updateMessage('Department');
+        } else {
+            $this->department->create($validated);
+            $this->createMessage('Department');
+        }
         $this->confirmForm = false;
     }
 

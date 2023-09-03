@@ -46,14 +46,6 @@ class UserComponent extends Component
         $this->confirmForm = true;
     }
 
-    public function saveUser()
-    {
-        $validated = $this->validate();
-        $validated['password'] = Hash::make($this->password);
-        $this->user->create($validated);
-        $this->createMessage('User');
-        $this->confirmForm = false;
-    }
 
     public function confirmUserEdit($id)
     {
@@ -67,12 +59,19 @@ class UserComponent extends Component
         $this->role = $user->role;
     }
 
-    public function updateUser()
+    public function saveUser()
     {
         $validated = $this->validate();
-        $user = $this->user->findOrFail($this->userId);
-        $user->update($validated);
-        $this->updateMessage('User');
+        if (isset($this->userId)) {
+            $user = $this->user->findOrFail($this->userId);
+            $user->update($validated);
+            $this->updateMessage('User');
+        } else {
+            $validated['password'] = Hash::make($this->password);
+            $this->user->create($validated);
+            $this->createMessage('User');
+        }
+
         $this->confirmForm = false;
     }
 
