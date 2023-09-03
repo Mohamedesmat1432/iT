@@ -70,7 +70,7 @@
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
                                 <button wire:click="sortBy('company_id')">
-                                    {{ __('Company Id') }}
+                                    {{ __('Company') }}
                                 </button>
                                 <x-sort-icon sortField="company_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
                             </div>
@@ -132,7 +132,7 @@
                                 {{ $license->name }}
                             </td>
                             <td class="p-2 border">
-                                {{ $license->company_id }}
+                                {{ $license->company->name ?? '' }}
                             </td>
                             <td class="p-2 border">
                                 <a href="{{ asset('files/licenses/' . $license->file) }}" target="_blank">

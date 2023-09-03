@@ -20,9 +20,11 @@ class CompaniesImport implements ToModel, WithHeadingRow, WithValidation, SkipsE
     public function model(array $row)
     {
         return new Company([
-            'name'     => $row['name'],
-            'address'    => $row['address'],
-            'phone'    => $row['phone'],
+            'name' => $row['name'],
+            'address' => $row['address'],
+            'email' => $row['email'],
+            'contacts' => $row['contacts'],
+            'specialization' => $row['specialization'],
         ]);
     }
 
@@ -30,9 +32,10 @@ class CompaniesImport implements ToModel, WithHeadingRow, WithValidation, SkipsE
     {
         return [
             'name' => ['required', 'string'],
-            'address' => ['required', 'string'],
-            'phone' => ['required', 'string'],
+            'address' => ['nullable', 'string'],
             'email' => ['nullable', 'string'],
+            'contacts' => ['nullable', 'string'],
+            'specialization' => ['nullable', 'string'],
         ];
     }
 }

@@ -16,7 +16,8 @@ class Company extends Model
         'name',
         'email',
         'address',
-        'phone',
+        'contacts',
+        'specialization',
     ];
 
     public function Licenses(): HasMany
@@ -24,8 +25,8 @@ class Company extends Model
         return $this->hasMany(License::class);
     }
     
-    public function getPhoneNumberAttribute()
-    {
-        return rtrim(chunk_split($this->phone, 3, '-'), '-');
-    }
+    // public function getPhoneNumberAttribute()
+    // {
+    //     return rtrim(chunk_split($this->phone, 3, '-'), '-');
+    // }
 }

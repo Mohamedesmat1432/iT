@@ -16,11 +16,11 @@ class CompaniesExport implements FromCollection, WithHeadings
 
     public function collection()
     {
-        return Company::select('id', 'name', 'email', 'address', 'phone')->get();
+        return Company::select('id', 'name', 'email', 'address', 'contacts', 'specialization')->get();
     }
 
     public function headings(): array
     {
-        return ['ID', 'Name', 'Email', 'Address', 'Phone'];
+        return ['ID', 'Name', 'Email', 'Address', 'Contacts', 'Specialization'];
     }
 }

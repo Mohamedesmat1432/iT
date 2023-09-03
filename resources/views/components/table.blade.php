@@ -3,7 +3,7 @@
      <div class="sm:-mx-6 lg:-mx-8">
          <div class="inline-block min-w-full py-2 sm:px-6 lg:px-8">
              <div class="overflow-x-auto">
-                 <table class="table-auto min-w-full text-center">
+                 <table class="table-auto min-w-full">
                      <thead>
                          {{ $thead }}
                      </thead>

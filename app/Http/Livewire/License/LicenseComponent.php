@@ -26,7 +26,7 @@ class LicenseComponent extends Component
 
     public function render()
     {
-        $companies = Company::select('id','name','email','phone')->get();
+        $companies = Company::all();
 
         $licenses = $this->license->when($this->search, function ($query) {
             return $query->where(function ($query) {

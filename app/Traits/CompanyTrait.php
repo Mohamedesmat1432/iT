@@ -8,7 +8,7 @@ trait CompanyTrait
 {
     use WithPagination, FileTrait, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $company, $companyId, $name, $email, $address, $phone;
+    public $company, $companyId, $name, $email, $address, $contacts, $specialization;
 
     protected function rules()
     {
@@ -16,7 +16,8 @@ trait CompanyTrait
             'name' => 'required|string|min:4',
             'email' => 'nullable|string|email',
             'address' => 'nullable|string',
-            'phone' => 'nullable|string|min:10'
+            'contacts' => 'nullable|string',
+            'specialization' => 'nullable|string|max:500',
         ];
     }
 
@@ -28,6 +29,7 @@ trait CompanyTrait
     public function resetItems()
     {
         $this->resetValidation();
-        $this->reset(['companyId', 'name', 'email', 'phone', 'address']);
+        $this->reset([
+            'companyId', 'name', 'email', 'contacts', 'address', 'specialization']);
     }
 }

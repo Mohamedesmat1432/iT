@@ -6,5 +6,6 @@ trait ConfirmTrait
 {
     public $confirmDeletion = false;
     public $confirmForm = false;
+    public $confirmShow = false;
     public $confirmImport = false;
 }

@@ -26,10 +26,16 @@
                 <x-input-error for="address" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
-                <x-label for="phone" value="{{ __('Phone') }}" />
-                <x-input id="phone" type="text" class="mt-1 block w-full" wire:model.debounce.500ms="phone"
-                    placeholder="{{ __('Enter company phone') }}" />
-                <x-input-error for="phone" class="mt-2" />
+                <x-label for="contacts" value="{{ __('Contacts') }}" />
+                <x-textarea id="contacts" class="mt-1 block w-full" wire:model.debounce.500ms="contacts"
+                    placeholder="Example: name , phone"></x-textarea>
+                <x-input-error for="contacts" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-4 mt-3">
+                <x-label for="specialization" value="{{ __('Specialization') }}" />
+                <x-textarea id="specialization" class="mt-1 block w-full" wire:model.debounce.500ms="specialization"
+                    placeholder="{{ __('Enter company specialization') }}"></x-textarea>
+                <x-input-error for="specialization" class="mt-2" />
             </div>
         </form>
 

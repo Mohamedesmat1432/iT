@@ -30,7 +30,7 @@ class CompanyComponent extends Component
                 $query->where('name', 'like', '%' . $this->search . '%')
                     ->orWhere('email', 'like', '%' . $this->search . '%')
                     ->orWhere('address', 'like', '%' . $this->search . '%')
-                    ->orWhere('phone', 'like', '%' . $this->search . '%');
+                    ->orWhere('contacts', 'like', '%' . $this->search . '%');
             });
         })->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')->paginate(10);
 
@@ -54,7 +54,8 @@ class CompanyComponent extends Component
         $this->name = $company->name;
         $this->email = $company->email;
         $this->address = $company->address;
-        $this->phone = $company->phone;
+        $this->contacts = $company->contacts;
+        $this->specialization = $company->specialization;
     }
 
     public function saveCompany()
