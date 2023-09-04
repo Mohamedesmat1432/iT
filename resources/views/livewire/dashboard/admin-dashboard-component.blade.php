@@ -1,11 +1,6 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    <div class="mt-2">
-        <h1 class=" text-2xl font-medium text-gray-900">
-            {{ __('Admin Dashboard') }}
-        </h1>
-    </div>
     <div class="mt-5">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <div class="bg-indigo-500 rounded p-5 text-white">
                 <div class="flex text-2xl justify-between">
                     <x-icon class="w-12 h-12 text-center" name="user" />
