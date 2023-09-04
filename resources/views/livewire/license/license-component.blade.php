@@ -141,7 +141,7 @@
                                 @endif
                             </td>
                             <td class="p-2 border">
-                                <x-status-date start="{{ $license->start_date }}" end="{{ $license->end_date }}" />
+                                <x-status-date start="{{ now() }}" end="{{ $license->end_date }}" />
                             </td>
                             <td class="p-2 border">
                                 {{ $license->start_date }}
