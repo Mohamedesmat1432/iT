@@ -38,11 +38,11 @@ class LicensesExport implements FromCollection, WithHeadings, WithStyles
      */
     public function collection()
     {
-        return License::select('id', 'name', 'phone', 'start_date', 'end_date')->get();
+        return License::select('id', 'name', 'start_date', 'end_date')->get();
     }
 
     public function headings(): array
     {
-        return ['ID', 'Name', 'Phone', 'Start Date', 'End Date'];
+        return ['ID', 'Name', 'Start Date', 'End Date'];
     }
 }
