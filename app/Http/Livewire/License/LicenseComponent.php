@@ -19,14 +19,15 @@ class LicenseComponent extends Component
         'sortAsc' => ['except' => true]
     ];
 
-    public function mount(License $license)
+    public function mount(License $license, Company $company)
     {
         $this->license = $license;
+        $this->company = $company;
     }
 
     public function render()
     {
-        $companies = Company::get();
+        $companies = $this->company->get();
 
         $licenses = $this->license->when($this->search, function ($query) {
             return $query->where(function ($query) {
@@ -61,6 +62,13 @@ class LicenseComponent extends Component
         $this->files = $license->files;
         $this->start_date = $license->start_date;
         $this->end_date = $license->end_date;
+    }
+
+    public function confirmLicenseShow($id)
+    {
+        $this->resetItems();
+        $this->confirmShow = true;
+        $this->license = $this->license->findOrFail($id);
     }
 
     public function saveLicense()

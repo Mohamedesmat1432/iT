@@ -5,6 +5,7 @@
 
     @include('livewire.license.includes.import-license')
 
+    @include('livewire.license.includes.show-details')
 
     <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
         <div class="flex justify-between">
@@ -59,14 +60,6 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
-                                <button wire:click="sortBy('company_id')">
-                                    {{ __('Company') }}
-                                </button>
-                                <x-sort-icon sortField="company_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
-                            </div>
-                        </td>
-                        <td class="px-4 py-2 border">
-                            <div class="flex items-center">
                                 <button wire:click="sortBy('file')">
                                     {{ __('File') }}
                                 </button>
@@ -107,6 +100,14 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
+                                <button wire:click="sortBy('company_id')">
+                                    {{ __('Company') }}
+                                </button>
+                                <x-sort-icon sortField="company_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
+                            </div>
+                        </td>
+                        <td class="px-4 py-2 border">
+                            <div class="flex items-center">
                                 {{ __('Action') }}
                             </div>
                         </td>
@@ -120,9 +121,6 @@
                             </td>
                             <td class="p-2 border">
                                 {{ $license->name }}
-                            </td>
-                            <td class="p-2 border">
-                                {{ $license->company->name ?? '' }}
                             </td>
                             <td class="p-2 border">
                                 <a href="{{ asset('files/licenses/' . $license->file) }}" target="_blank">
@@ -148,6 +146,13 @@
                             </td>
                             <td class="p-2 border">
                                 {{ $license->end_date }}
+                            </td>
+                            <td class="p-2 border text-center">
+                                <x-yellow-button wire:click="confirmLicenseShow({{ $license->id }})"
+                                    wire:loading.attr="disabled">
+                                    <x-icon class="w-4 h-4" name="eye" />
+                                    {{-- {{ __('Details') }} --}}
+                                </x-yellow-button>
                             </td>
                             <td class="p-2 border">
                                 <x-indigo-button wire:click="confirmLicenseEdit({{ $license->id }})"

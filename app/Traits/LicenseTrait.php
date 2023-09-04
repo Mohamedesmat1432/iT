@@ -8,7 +8,7 @@ trait LicenseTrait
 {
     use WithPagination, FileTrait, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $license, $licenseId, $company_id, $name, $start_date, $end_date;
+    public $license, $licenseId, $company, $company_id, $name, $start_date, $end_date;
 
     protected function rules()
     {
