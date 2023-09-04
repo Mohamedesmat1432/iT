@@ -106,7 +106,7 @@
                                 <x-sort-icon sortField="company_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
                             </div>
                         </td>
-                        <td class="px-4 py-2 border">
+                        <td class="px-4 py-2 border" colspan="2">
                             <div class="flex items-center">
                                 {{ __('Action') }}
                             </div>
@@ -147,7 +147,7 @@
                             <td class="p-2 border">
                                 {{ $license->end_date }}
                             </td>
-                            <td class="p-2 border text-center">
+                            <td class="p-2 border">
                                 <x-yellow-button wire:click="confirmLicenseShow({{ $license->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="eye" />
@@ -160,7 +160,8 @@
                                     <x-icon class="w-4 h-4" name="pencil-square" />
                                     {{-- {{ __('Edit') }} --}}
                                 </x-indigo-button>
-
+                            </td>
+                            <td class="p-2 border">
                                 <x-danger-button wire:click="confirmLicenseDeletion({{ $license->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="trash" />

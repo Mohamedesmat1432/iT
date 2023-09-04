@@ -43,7 +43,7 @@
                                 <x-sort-icon sortField="name" :sortBy="$sortBy" :sortAsc="$sortAsc" />
                             </div>
                         </td>
-                        <td class="px-4 py-2 border">
+                        <td class="px-4 py-2 border" colspan="2">
                             <div class="flex items-center">
                                 {{ __('Action') }}
                             </div>
@@ -65,6 +65,8 @@
                                     <x-icon class="w-4 h-4" name="pencil-square" />
                                     {{ __('Edit') }}
                                 </x-indigo-button>
+                            </td>
+                            <td class="p-2 border">
                                 <x-danger-button wire:click="confirmDepartmentDeletion({{ $department->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="trash" />

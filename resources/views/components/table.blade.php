@@ -7,7 +7,7 @@
                      <thead>
                          {{ $thead }}
                      </thead>
-                     <tbody>
+                     <tbody class="text-center">
                          {{ $tbody }}
                      </tbody>
                  </table>
