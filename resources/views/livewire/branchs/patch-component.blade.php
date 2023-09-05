@@ -7,7 +7,7 @@
 
         <div class="flex justify-between">
             <h1 class=" text-2xl font-medium text-gray-900">
-                {{ __('patchs') }}
+                {{ __('Patchs') }}
             </h1>
             <x-indigo-button wire:click="confirmPatchAdd()" wire:loading.attr="disabled">
                 <x-icon class="w-4 h-4" name="plus" />

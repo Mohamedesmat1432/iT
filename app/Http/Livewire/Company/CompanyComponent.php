@@ -32,7 +32,7 @@ class CompanyComponent extends Component
                     ->orWhere('address', 'like', '%' . $this->search . '%')
                     ->orWhere('contacts', 'like', '%' . $this->search . '%');
             });
-        })->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')->paginate(10);
+        })->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')->latest()->paginate(10);
 
         return view('livewire.company.company-component', [
             'companies' => $companies
