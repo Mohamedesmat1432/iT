@@ -9,7 +9,7 @@
             <h1 class=" text-2xl font-medium text-gray-900">
                 {{ __('Switchs') }}
             </h1>
-            <x-indigo-button wire:click="confirmswitchAdd()" wire:loading.attr="disabled">
+            <x-indigo-button wire:click="confirmSwitchAdd()" wire:loading.attr="disabled">
                 <x-icon class="w-4 h-4" name="plus" />
                 {{ __('Create') }}
             </x-indigo-button>
