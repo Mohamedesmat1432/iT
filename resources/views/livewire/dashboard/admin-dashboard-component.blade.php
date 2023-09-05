@@ -23,6 +23,28 @@
                     </div>
                 </div>
             </a>
+            <a href="{{ route('admin.companies') }}">
+                <div class="bg-yellow-500 hover:bg-yellow-600 rounded p-5 text-white">
+                    <div class="flex text-2xl justify-between">
+                        <x-icon class="w-12 h-12 text-center" name="home-modern" />
+                        <div class="text-center">
+                            <div> {{ __('Companies') }}</div>
+                            <div>{{ $companies }}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+            <a href="{{ route('admin.licenses') }}">
+                <div class="bg-green-500 hover:bg-green-600 rounded p-5 text-white">
+                    <div class="flex text-2xl justify-between">
+                        <x-icon class="w-12 h-12 text-center" name="clipboard-document-check" />
+                        <div class="text-center">
+                            <div> {{ __('Licenses') }}</div>
+                            <div>{{ $licenses }}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
             <a href="{{ route('admin.switchs') }}">
                 <div class="bg-gray-700 hover:bg-gray-800 rounded p-5 text-white">
                     <div class="flex text-2xl justify-between">
@@ -52,28 +74,6 @@
                         <div class="text-center">
                             <div> {{ __('IPs') }}</div>
                             <div>{{ $ips }}</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="{{ route('admin.companies') }}">
-                <div class="bg-yellow-500 hover:bg-yellow-600 rounded p-5 text-white">
-                    <div class="flex text-2xl justify-between">
-                        <x-icon class="w-12 h-12 text-center" name="home-modern" />
-                        <div class="text-center">
-                            <div> {{ __('Companies') }}</div>
-                            <div>{{ $companies }}</div>
-                        </div>
-                    </div>
-                </div>
-            </a>
-            <a href="{{ route('admin.licenses') }}">
-                <div class="bg-green-500 hover:bg-green-600 rounded p-5 text-white">
-                    <div class="flex text-2xl justify-between">
-                        <x-icon class="w-12 h-12 text-center" name="clipboard-document-check" />
-                        <div class="text-center">
-                            <div> {{ __('Licenses') }}</div>
-                            <div>{{ $licenses }}</div>
                         </div>
                     </div>
                 </div>
