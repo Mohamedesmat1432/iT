@@ -37,7 +37,7 @@
                                     {{ __('Patchs') }}
                                 </x-nav-link>
                                 <x-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
-                                    {{ __('Ips') }}
+                                    {{ __('IPs') }}
                                 </x-nav-link>
                                 <x-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
                                     {{ __('Edoki') }}
@@ -231,7 +231,7 @@
                             {{ __('Patchs') }}
                         </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
-                            {{ __('Ips') }}
+                            {{ __('IPs') }}
                         </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
                             {{ __('Edoki') }}
