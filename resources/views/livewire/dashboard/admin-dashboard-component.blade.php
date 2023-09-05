@@ -45,6 +45,17 @@
                     </div>
                 </div>
             </a>
+            <a href="{{ route('admin.ips') }}">
+                <div class="bg-blue-500 hover:bg-blue-600 rounded p-5 text-white">
+                    <div class="flex text-2xl justify-between">
+                        <x-icon class="w-12 h-12 text-center" name="arrow-trending-up" />
+                        <div class="text-center">
+                            <div> {{ __('IPs') }}</div>
+                            <div>{{ $ips }}</div>
+                        </div>
+                    </div>
+                </div>
+            </a>
             <a href="{{ route('admin.companies') }}">
                 <div class="bg-yellow-500 hover:bg-yellow-600 rounded p-5 text-white">
                     <div class="flex text-2xl justify-between">

@@ -4,6 +4,7 @@ namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Company;
 use App\Models\Department;
+use App\Models\Ip;
 use App\Models\License;
 use App\Models\PatchBranch;
 use App\Models\SwitchBranch;
@@ -20,6 +21,7 @@ class AdminDashboardComponent extends Component
         $licenses = License::count();
         $patchs = PatchBranch::count();
         $switchs = SwitchBranch::count();
+        $ips = Ip::count();
 
         return view('livewire.dashboard.admin-dashboard-component', [
             'users' => $users,
@@ -28,6 +30,7 @@ class AdminDashboardComponent extends Component
             'licenses' => $licenses,
             'patchs' => $patchs,
             'switchs' => $switchs,
+            'ips' => $ips,
         ]);
     }
 }
