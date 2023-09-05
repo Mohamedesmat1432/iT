@@ -50,13 +50,6 @@ class CompanySeeder extends Seeder
                 'specialization' => ''
             ],
             [
-                'name' => 'IT - VALLEY',
-                'email' => '',
-                'address' => ' شارع الثورة - الدقى - الجيزة',
-                'contacts' => '02-33378557,02-37486693',
-                'specialization' => ''
-            ],
-            [
                 'name' => 'Beta Technology',
                 'email' => '',
                 'address' => '42 شارع عبدالحميد لطفى - الدقى - الجيزة',
