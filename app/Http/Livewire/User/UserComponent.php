@@ -32,11 +32,8 @@ class UserComponent extends Component
             });
         })->orderBy($this->sortBy, $this->sortAsc ? 'ASC' : 'DESC')->paginate(10);
 
-        $departments = Department::select('id', 'name')->get();
-
         return view('livewire.user.user-component', [
             'users' => $users,
-            'departments' => $departments
         ]);
     }
 
@@ -55,7 +52,6 @@ class UserComponent extends Component
         $this->userId = $user->id;
         $this->name = $user->name;
         $this->email = $user->email;
-        $this->department_id = $user->department_id;
         $this->role = $user->role;
     }
 

@@ -73,6 +73,8 @@ class SwitchComponent extends Component
     public function deleteSwitch()
     {
         $switch = $this->switch->findOrFail($this->switchId);
+        $switch->edokis()->update(['switch_id' => null]);
+        $switch->emadEdeens()->update(['switch_id' => null]);
         $switch->delete();
         $this->deleteMessage('Switch');
         $this->confirmDeletion = false;

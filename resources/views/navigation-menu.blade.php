@@ -39,6 +39,12 @@
                                 <x-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
                                     {{ __('Ips') }}
                                 </x-nav-link>
+                                <x-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
+                                    {{ __('Edoki') }}
+                                </x-nav-link>
+                                <x-nav-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
+                                    {{ __('EmadEdeen') }}
+                                </x-nav-link>
                             @elseif (auth()->user()->role === 'support')
                                 <x-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">
                                     {{ __('Dashboard') }}
@@ -226,6 +232,12 @@
                         </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
                             {{ __('Ips') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
+                            {{ __('Edoki') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
+                            {{ __('EmadEdeen') }}
                         </x-responsive-nav-link>
                     @elseif (auth()->user()->role === 'support')
                         <x-responsive-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">

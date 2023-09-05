@@ -69,14 +69,6 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
-                                <button wire:click="sortBy('department_id')">
-                                    {{ __('Department') }}
-                                </button>
-                                <x-sort-icon sortField="department_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
-                            </div>
-                        </td>
-                        <td class="px-4 py-2 border">
-                            <div class="flex items-center">
                                 <button wire:click="sortBy('role')">
                                     {{ __('Role') }}
                                 </button>
@@ -101,9 +93,6 @@
                             </td>
                             <td class="p-2 border">
                                 {{ $user->email }}
-                            </td>
-                            <td class="p-2 border">
-                                {{ $user->department->name ?? '' }}
                             </td>
                             <td class="p-2 border">
                                 {{ $user->role }}

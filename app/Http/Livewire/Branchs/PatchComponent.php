@@ -73,6 +73,8 @@ class PatchComponent extends Component
     public function deletePatch()
     {
         $patch = $this->patch->findOrFail($this->patchId);
+        $patch->edokis()->update(['patch_id' => null]);
+        $patch->emadEdeens()->update(['patch_id' => null]);
         $patch->delete();
         $this->deleteMessage('Patch');
         $this->confirmDeletion = false;

@@ -22,21 +22,11 @@
             @if (!$this->userId)
                 <div class="col-span-6 sm:col-span-4 mt-3">
                     <x-label for="password" value="{{ __('Password') }}" />
-                    <x-input id="password" type="text" class="mt-1 block w-full"
+                    <x-input id="password" type="password" class="mt-1 block w-full"
                         wire:model.debounce.500ms="password" placeholder="{{ __('Enter user password') }}" />
                     <x-input-error for="password" class="mt-2" />
                 </div>
             @endif
-            <div class="col-span-6 sm:col-span-4 mt-3">
-                <x-label for="department_id" value="{{ __('Department') }}" />
-                <x-select id="department_id" class="mt-1 block w-full" wire:model="department_id">
-                    <option value="#">{{ __('Select Department') }}</option>
-                    @foreach ($departments as $department)
-                        <option value="{{ $department->id }}">{{ $department->name }}</option>
-                    @endforeach
-                </x-select>
-                <x-input-error for="department_id" class="mt-2" />
-            </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="role" value="{{ __('Role') }}" />
                 <x-select id="role" class="mt-1 block w-full" wire:model="role">

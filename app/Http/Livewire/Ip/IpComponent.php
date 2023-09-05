@@ -73,6 +73,8 @@ class IpComponent extends Component
     public function deleteIp()
     {
         $ip = $this->ip->findOrFail($this->ipId);
+        $ip->edokis()->update(['ip_id' => null]);
+        $ip->emadEdeens()->update(['ip_id' => null]);
         $ip->delete();
         $this->deleteMessage('Ip');
         $this->confirmDeletion = false;

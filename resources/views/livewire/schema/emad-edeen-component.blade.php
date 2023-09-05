@@ -1,16 +1,16 @@
 <div>
 
-    @include('livewire.schema.includes.save-edoki')
+    @include('livewire.schema.includes.save-emad-edeen')
 
-    @include('livewire.schema.includes.delete-edoki')
+    @include('livewire.schema.includes.delete-emad-edeen')
 
     <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
 
         <div class="flex justify-between">
             <h1 class=" text-2xl font-medium text-gray-900">
-                {{ __('Edoki Schema') }}
+                {{ __('Emad Edeen Schema') }}
             </h1>
-            <x-indigo-button wire:click="confirmEdokiAdd()" wire:loading.attr="disabled">
+            <x-indigo-button wire:click="confirmEmadEdeenAdd()" wire:loading.attr="disabled">
                 <x-icon class="w-4 h-4" name="plus" />
                 {{ __('Create') }}
             </x-indigo-button>
@@ -95,38 +95,38 @@
                     </tr>
                 </x-slot>
                 <x-slot name="tbody">
-                    @foreach ($edokis as $edoki)
+                    @foreach ($emadEdeens as $emadEdeen)
                         <tr>
                             <td class="p-2 border">
-                                {{ $edoki->id }}
+                                {{ $emadEdeen->id }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->name }}
+                                {{ $emadEdeen->name }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->email }}
+                                {{ $emadEdeen->email }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->department->name ?? '' }}
+                                {{ $emadEdeen->department->name ?? '' }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->ip->number ?? '' }}
+                                {{ $emadEdeen->ip->number ?? '' }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->switch->port ?? '' }}
+                                {{ $emadEdeen->switch->port ?? '' }}
                             </td>
                             <td class="p-2 border">
-                                {{ $edoki->patch->port ?? '' }}
+                                {{ $emadEdeen->patch->port ?? '' }}
                             </td>
                             <td class="p-2 border">
-                                <x-indigo-button wire:click="confirmEdokiEdit({{ $edoki->id }})"
+                                <x-indigo-button wire:click="confirmEmadEdeenEdit({{ $emadEdeen->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="pencil-square" />
                                     {{ __('Edit') }}
                                 </x-indigo-button>
                             </td>
                             <td class="p-2 border">
-                                <x-danger-button wire:click="confirmEdokiDeletion({{ $edoki->id }})"
+                                <x-danger-button wire:click="confirmEmadEdeenDeletion({{ $emadEdeen->id }})"
                                     wire:loading.attr="disabled">
                                     <x-icon class="w-4 h-4" name="trash" />
                                     {{ __('Delete') }}
@@ -138,7 +138,7 @@
             </x-table>
 
             <div class="mt-4">
-                {{ $edokis->links() }}
+                {{ $emadEdeens->links() }}
             </div>
         </div>
     </div>

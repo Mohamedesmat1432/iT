@@ -8,14 +8,13 @@ trait UserTrait
 {
     use WithPagination, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $user, $userId, $name, $email, $password, $department_id, $role;
+    public $user, $userId, $name, $email, $password, $role;
 
     protected function rules()
     {
         $rules = [
             'name' => 'required|string|min:4',
             'email' => 'required|string|email|max:255|unique:users,email,' . $this->userId,
-            'department_id' => 'nullable|numeric|exists:departments,id',
             'role' => 'required|in:admin,support,user',
         ];
 
@@ -34,6 +33,6 @@ trait UserTrait
     public function resetItems()
     {
         $this->resetValidation();
-        $this->reset(['userId', 'name', 'email', 'password', 'department_id', 'role']);
+        $this->reset(['userId', 'name', 'email', 'password', 'role']);
     }
 }

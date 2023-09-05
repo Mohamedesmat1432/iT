@@ -28,7 +28,6 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'department_id',
         'role',
     ];
 
@@ -62,8 +61,4 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function Department(): BelongsTo
-    {
-        return $this->belongsTo(Department::class);
-    }
 }

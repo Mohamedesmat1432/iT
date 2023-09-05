@@ -45,6 +45,16 @@ class PagesController extends Controller
     {
         return view('pages.ips');
     }
+
+    public function edokis()
+    {
+        return view('pages.edokis');
+    }
+
+    public function emadEdeens()
+    {
+        return view('pages.emad-edeens');
+    }
     
     public function userDashboard()
     {

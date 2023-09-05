@@ -14,8 +14,13 @@ class Department extends Model
 
     protected $fillable = ['name'];
 
-    public function Users() :HasMany
+    public function Edokis(): HasMany
     {
-        return $this->hasMany(User::class);
+        return $this->hasMany(Edoki::class, 'department_id');
+    }
+
+    public function EmadEdeens(): HasMany
+    {
+        return $this->hasMany(EmadEdeen::class, 'department_id');
     }
 }

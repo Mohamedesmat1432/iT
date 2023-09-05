@@ -4,6 +4,8 @@ namespace App\Http\Livewire\Dashboard;
 
 use App\Models\Company;
 use App\Models\Department;
+use App\Models\Edoki;
+use App\Models\EmadEdeen;
 use App\Models\Ip;
 use App\Models\License;
 use App\Models\PatchBranch;
@@ -22,6 +24,8 @@ class AdminDashboardComponent extends Component
         $patchs = PatchBranch::count();
         $switchs = SwitchBranch::count();
         $ips = Ip::count();
+        $edokis = Edoki::count();
+        $emadEdeens = EmadEdeen::count();
 
         return view('livewire.dashboard.admin-dashboard-component', [
             'users' => $users,
@@ -31,6 +35,8 @@ class AdminDashboardComponent extends Component
             'patchs' => $patchs,
             'switchs' => $switchs,
             'ips' => $ips,
+            'edokis' => $edokis,
+            'emadEdeens' => $emadEdeens,
         ]);
     }
 }
