@@ -11,9 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('switch_branchs', function (Blueprint $table) {
+        Schema::create('ips', function (Blueprint $table) {
             $table->id();
-            $table->string('port')->unique();
+            $table->string('number')->unique();
             $table->timestamps();
         });
     }
@@ -23,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('switch_branchs');
+        Schema::dropIfExists('ips');
     }
 };

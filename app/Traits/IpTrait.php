@@ -4,16 +4,16 @@ namespace App\Traits;
 
 use Livewire\WithPagination;
 
-trait PatchTrait
+trait IpTrait
 {
     use WithPagination, ConfirmTrait, SortSearchTrait, MessageTrait;
 
-    public $patch, $patchId, $port;
+    public $ip, $ipId, $number;
 
     protected function rules()
     {
         return [
-            'port' => 'required|string|min:2|unique:patch_branchs,port,' . $this->patchId,
+            'number' => 'required|string|min:2|unique:ips,number,' . $this->ipId,
         ];
     }
 
@@ -25,6 +25,6 @@ trait PatchTrait
     public function resetItems()
     {
         $this->resetValidation();
-        $this->reset(['patchId', 'port']);
+        $this->reset(['ipId', 'number']);
     }
 }

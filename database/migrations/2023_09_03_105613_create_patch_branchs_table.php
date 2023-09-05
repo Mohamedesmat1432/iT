@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('patch_branchs', function (Blueprint $table) {
             $table->id();
-            $table->string('port')->nullable();
+            $table->string('port')->unique();
             $table->timestamps();
         });
     }

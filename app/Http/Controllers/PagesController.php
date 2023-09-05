@@ -40,6 +40,11 @@ class PagesController extends Controller
     {
         return view('pages.switchs');
     }
+
+    public function ips()
+    {
+        return view('pages.ips');
+    }
     
     public function userDashboard()
     {

@@ -20,6 +20,9 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             DepartmentSeeder::class,
             LicenseSeeder::class,
+            PatchSeeder::class,
+            SwitchSeeder::class,
+            IpSeeder::class,
         ]);
     }
 }

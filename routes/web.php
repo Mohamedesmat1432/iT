@@ -41,5 +41,6 @@ Route::middleware(['auth:sanctum', 'role:admin', config('jetstream.auth_session'
             Route::get('/licenses', 'licenses')->name('licenses');
             Route::get('/patchs', 'patchs')->name('patchs');
             Route::get('/switchs', 'switchs')->name('switchs');
+            Route::get('/ips', 'ips')->name('ips');
         });
     });
