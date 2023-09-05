@@ -28,11 +28,11 @@
             </div>
             <div class="mt-3 flex">
                 <x-indigo-button class="mr-2" wire:click="confirmImport()" wire:loading.attr="disabled">
-                    <x-icon class="w-4 h-4" name="arrow-up-circle" />
+                    <x-icon class="w-4 h-4 mr-1" name="arrow-up" />
                     {{ __('Import') }}
                 </x-indigo-button>
                 <x-danger-button wire:click="exportCompany()" wire:loading.attr="disabled">
-                    <x-icon class="w-4 h-4" name="arrow-down-circle" />
+                    <x-icon class="w-4 h-4 mr-1" name="arrow-down" />
                     {{ __('Export') }}
                 </x-danger-button>
             </div>
