@@ -25,6 +25,8 @@ class UserComponent extends Component
 
     public function render()
     {
+
+
         $users = $this->user->when($this->search, function ($query) {
             return $query->where(function ($query) {
                 $query->where('name', 'like', '%' . $this->search . '%')

@@ -18,32 +18,17 @@
                                 <x-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                                     {{ __('Dashboard') }}
                                 </x-nav-link>
+                                <x-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
+                                    {{ __('Users') }}
+                                </x-nav-link>
+                                <x-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
+                                    {{ __('Departments') }}
+                                </x-nav-link>
                                 <x-nav-link href="{{ route('admin.companies') }}" :active="request()->routeIs('admin.companies')">
                                     {{ __('Comapnies') }}
                                 </x-nav-link>
                                 <x-nav-link href="{{ route('admin.licenses') }}" :active="request()->routeIs('admin.licenses')">
                                     {{ __('Licenses') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
-                                    {{ __('Departments') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
-                                    {{ __('Users') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
-                                    {{ __('Switchs') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
-                                    {{ __('Patchs') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
-                                    {{ __('IPs') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
-                                    {{ __('Edoki') }}
-                                </x-nav-link>
-                                <x-nav-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
-                                    {{ __('EmadEdeen') }}
                                 </x-nav-link>
                             @elseif (auth()->user()->role === 'support')
                                 <x-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">
@@ -161,9 +146,30 @@
                                     {{ __('Manage Account') }}
                                 </div>
 
-                                <x-dropdown-link href="{{ route('profile.show') }}">
+                                <x-dropdown-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
+                                @if (auth()->user()->role === 'admin')
+                                    <x-dropdown-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
+                                        {{ __('Switchs') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
+                                        {{ __('Patchs') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
+                                        {{ __('IPs') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
+                                        {{ __('Edoki') }}
+                                    </x-dropdown-link>
+                                    <x-dropdown-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
+                                        {{ __('EmadEdeen') }}
+                                    </x-dropdown-link>
+                                @elseif (auth()->user()->role === 'support')
+                                    <x-dropdown-link href="{{ route('support.companies') }}" :active="request()->routeIs('support.companies')">
+                                        {{ __('Comapnies') }}
+                                    </x-dropdown-link>
+                                @endif
 
                                 @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                                     <x-dropdown-link href="{{ route('api-tokens.index') }}">
@@ -212,32 +218,17 @@
                         <x-responsive-nav-link href="{{ route('admin.dashboard') }}" :active="request()->routeIs('admin.dashboard')">
                             {{ __('Dashboard') }}
                         </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
+                            {{ __('Users') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
+                            {{ __('Departments') }}
+                        </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.companies') }}" :active="request()->routeIs('admin.companies')">
                             {{ __('Comapnies') }}
                         </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.licenses') }}" :active="request()->routeIs('admin.licenses')">
                             {{ __('Licenses') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.departments') }}" :active="request()->routeIs('admin.departments')">
-                            {{ __('Departments') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.users') }}" :active="request()->routeIs('admin.users')">
-                            {{ __('Users') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
-                            {{ __('Switchs') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
-                            {{ __('Patchs') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
-                            {{ __('IPs') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
-                            {{ __('Edoki') }}
-                        </x-responsive-nav-link>
-                        <x-responsive-nav-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
-                            {{ __('EmadEdeen') }}
                         </x-responsive-nav-link>
                     @elseif (auth()->user()->role === 'support')
                         <x-responsive-nav-link href="{{ route('support.dashboard') }}" :active="request()->routeIs('support.dashboard')">
@@ -287,7 +278,23 @@
                     <x-responsive-nav-link href="{{ route('profile.show') }}" :active="request()->routeIs('profile.show')">
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
-
+                    @if (auth()->user()->role === 'admin')
+                        <x-responsive-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
+                            {{ __('Switchs') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.patchs') }}" :active="request()->routeIs('admin.patchs')">
+                            {{ __('Patchs') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.ips') }}" :active="request()->routeIs('admin.ips')">
+                            {{ __('IPs') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.edokis') }}" :active="request()->routeIs('admin.edokis')">
+                            {{ __('Edoki') }}
+                        </x-responsive-nav-link>
+                        <x-responsive-nav-link href="{{ route('admin.emad-edeens') }}" :active="request()->routeIs('admin.emad-edeens')">
+                            {{ __('EmadEdeen') }}
+                        </x-responsive-nav-link>
+                    @endif
                     @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                         <x-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
                             {{ __('API Tokens') }}

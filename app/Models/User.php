@@ -61,4 +61,11 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
+    protected $with = ['sessions'];
+
+    public function sessions()
+    {
+        return $this->hasMany(Session::class);
+    }
+
 }
