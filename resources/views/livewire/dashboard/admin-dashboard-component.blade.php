@@ -2,7 +2,7 @@
     <div class="mt-5">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
             <a href="{{ route('admin.users') }}">
-                <div class="bg-indigo-500 hover:bg-indigo-600 rounded p-5 text-white">
+                <div class="bg-indigo-600 hover:bg-indigo-700 rounded p-5 text-white">
                     <div class="flex text-2xl justify-between">
                         <x-icon class="w-12 h-12 text-center" name="user" />
                         <div class="text-center">
