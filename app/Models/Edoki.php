@@ -16,6 +16,7 @@ class Edoki extends Model
         'name',
         'email',
         'department_id',
+        'device_id',
         'ip_id',
         'switch_id',
         'patch_id',
@@ -24,6 +25,11 @@ class Edoki extends Model
     public function Department(): BelongsTo
     {
         return $this->belongsTo(Department::class);
+    }
+
+    public function Device(): BelongsTo
+    {
+        return $this->belongsTo(Device::class);
     }
 
     public function Ip(): BelongsTo

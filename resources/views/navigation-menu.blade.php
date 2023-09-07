@@ -150,6 +150,9 @@
                                     {{ __('Profile') }}
                                 </x-dropdown-link>
                                 @if (auth()->user()->role === 'admin')
+                                    <x-dropdown-link href="{{ route('admin.devices') }}" :active="request()->routeIs('admin.devices')">
+                                        {{ __('Devices') }}
+                                    </x-dropdown-link>
                                     <x-dropdown-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
                                         {{ __('Switchs') }}
                                     </x-dropdown-link>
@@ -279,6 +282,9 @@
                         {{ __('Profile') }}
                     </x-responsive-nav-link>
                     @if (auth()->user()->role === 'admin')
+                        <x-responsive-nav-link href="{{ route('admin.devices') }}" :active="request()->routeIs('admin.devices')">
+                            {{ __('Devices') }}
+                        </x-responsive-nav-link>
                         <x-responsive-nav-link href="{{ route('admin.switchs') }}" :active="request()->routeIs('admin.switchs')">
                             {{ __('Switchs') }}
                         </x-responsive-nav-link>

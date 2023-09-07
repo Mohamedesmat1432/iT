@@ -65,6 +65,14 @@
                         </td>
                         <td class="px-4 py-2 border">
                             <div class="flex items-center">
+                                <button wire:click="sortBy('device_id')">
+                                    {{ __('Device') }}
+                                </button>
+                                <x-sort-icon sortField="device_id" :sortBy="$sortBy" :sortAsc="$sortAsc" />
+                            </div>
+                        </td>
+                        <td class="px-4 py-2 border">
+                            <div class="flex items-center">
                                 <button wire:click="sortBy('ip_id')">
                                     {{ __('IP') }}
                                 </button>
@@ -108,6 +116,9 @@
                             </td>
                             <td class="p-2 border">
                                 {{ $edoki->department->name ?? '' }}
+                            </td>
+                            <td class="p-2 border">
+                                {{ $edoki->device->name ?? '' }}
                             </td>
                             <td class="p-2 border">
                                 {{ $edoki->ip->number ?? '' }}

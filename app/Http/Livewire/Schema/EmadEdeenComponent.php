@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Schema;
 
 use App\Models\Department;
+use App\Models\Device;
 use App\Models\EmadEdeen;
 use App\Models\Ip;
 use App\Models\PatchBranch;
@@ -28,6 +29,7 @@ class EmadEdeenComponent extends Component
     public function render()
     {
         $departments = Department::select('id', 'name')->get();
+        $devices = Device::select('id', 'name')->get();
         $ips = Ip::select('id', 'number')->get();
         $patchs = PatchBranch::select('id', 'port')->get();
         $switchs = SwitchBranch::select('id', 'port')->get();
@@ -42,6 +44,7 @@ class EmadEdeenComponent extends Component
         return view('livewire.schema.emad-edeen-component', [
             'emadEdeens' => $emadEdeens,
             'departments' => $departments,
+            'devices' => $devices,
             'ips' => $ips,
             'patchs' => $patchs,
             'switchs' => $switchs,
@@ -63,6 +66,7 @@ class EmadEdeenComponent extends Component
         $this->name = $emadEdeen->name;
         $this->email = $emadEdeen->email;
         $this->department_id = $emadEdeen->department_id;
+        $this->device_id = $emadEdeen->device_id;
         $this->ip_id = $emadEdeen->ip_id;
         $this->switch_id = $emadEdeen->switch_id;
         $this->patch_id = $emadEdeen->patch_id;

@@ -11,15 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('edokis', function (Blueprint $table) {
+        Schema::create('devices', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('email')->unique();
-            $table->foreignId('department_id')->nullable();
-            $table->foreignId('device_id')->nullable();
-            $table->foreignId('ip_id')->nullable();
-            $table->foreignId('patch_id')->nullable();
-            $table->foreignId('switch_id')->nullable();
+            $table->string('serial');
+            $table->text('specifications')->nullable();
             $table->timestamps();
         });
     }
@@ -29,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('edokis');
+        Schema::dropIfExists('devices');
     }
 };

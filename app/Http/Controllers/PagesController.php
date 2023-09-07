@@ -31,6 +31,11 @@ class PagesController extends Controller
         return view('pages.licenses');
     }
 
+    public function devices()
+    {
+        return view('pages.devices');
+    }
+
     public function patchs()
     {
         return view('pages.patchs');

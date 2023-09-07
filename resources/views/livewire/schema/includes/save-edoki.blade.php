@@ -30,6 +30,16 @@
                 <x-input-error for="department_id" class="mt-2" />
             </div>
             <div class="col-span-6 sm:col-span-4 mt-3">
+                <x-label for="device_id" value="{{ __('Devices') }}" />
+                <x-select id="device_id" class="mt-1 block w-full" wire:model="device_id">
+                    <option value="#">{{ __('Select Device') }}</option>
+                    @foreach ($devices as $device)
+                        <option value="{{ $device->id }}">{{ $device->name }}</option>
+                    @endforeach
+                </x-select>
+                <x-input-error for="device_id" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-4 mt-3">
                 <x-label for="ip_id" value="{{ __('IP') }}" />
                 <x-select id="ip_id" class="mt-1 block w-full" wire:model="ip_id">
                     <option value="#">{{ __('Select IP') }}</option>

@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Schema;
 
 use App\Models\Department;
+use App\Models\Device;
 use App\Models\Edoki;
 use App\Models\Ip;
 use App\Models\PatchBranch;
@@ -28,6 +29,7 @@ class EdokiComponent extends Component
     public function render()
     {
         $departments = Department::select('id', 'name')->get();
+        $devices = Device::select('id', 'name')->get();
         $ips = Ip::select('id', 'number')->get();
         $patchs = PatchBranch::select('id', 'port')->get();
         $switchs = SwitchBranch::select('id', 'port')->get();
@@ -42,6 +44,7 @@ class EdokiComponent extends Component
         return view('livewire.schema.edoki-component', [
             'edokis' => $edokis,
             'departments' => $departments,
+            'devices' => $devices,
             'ips' => $ips,
             'patchs' => $patchs,
             'switchs' => $switchs,
@@ -64,6 +67,7 @@ class EdokiComponent extends Component
         $this->name = $edoki->name;
         $this->email = $edoki->email;
         $this->department_id = $edoki->department_id;
+        $this->device_id = $edoki->device_id;
         $this->ip_id = $edoki->ip_id;
         $this->switch_id = $edoki->switch_id;
         $this->patch_id = $edoki->patch_id;
